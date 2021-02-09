@@ -1,0 +1,28 @@
+.card {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  min-width: 330px;
+}
+
+.card-img {
+  width: 120px;
+  height: 160px;
+  padding: 9px 30px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.details {
+  color: #9a9a9a;
+}
+
+.selected {
+  border-color: green;
+  border-width: 2px;
+}

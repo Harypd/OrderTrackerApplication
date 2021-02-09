@@ -1,0 +1,56 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/order/198771"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "order_198771.json",
+        "headers": {
+          "Content-type" : "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/order/198772"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "order_198772.json",
+        "headers": {
+          "Content-type" : "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/order/100000"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "order_999.json",
+        "headers": {
+          "Content-type" : "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/catalog/sku1234"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "skudetails_sku1234.json",
+        "headers": {
+          "Content-type" : "application/json"
+        }
+      }
+    }
+  ]
+}

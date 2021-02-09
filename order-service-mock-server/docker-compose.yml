@@ -1,0 +1,17 @@
+version: '2.1'
+
+
+services:
+  mockserver:
+    image: "amazoncorretto:11"
+    container_name: mockserver
+    ports:
+      - "9090:9090"
+    environment:
+      - env=${env}
+      - TZ=${time_zone}
+      - portNum=9090
+    volumes:
+      - ./target/mock-server-1.0.0-SNAPSHOT-jar-with-dependencies.jar:/opt/mock-server-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+      - ./src/main/resources/config/:/opt
+    entrypoint: java -jar /opt/mock-server-1.0.0-SNAPSHOT-jar-with-dependencies.jar --server.port=9090

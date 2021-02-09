@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="order-details">
+    <div class="message">
+      <span *ngIf="selectedItem?.status === 'ordered' && !isNewShipDate()">Get Excited!</span>
+      <span *ngIf="selectedItem?.status === 'shipped'">Its on the way...</span>
+      <span *ngIf="selectedItem?.status === 'delivered'">Thanks for shopping :)</span>
+      <span *ngIf="isNewShipDate()">Heads up: The shipping date changed.</span>
+    </div>
+    <div class="msg-desc">
+      <span *ngIf="selectedItem?.status === 'ordered' && !isNewShipDate()">You item will get shipped soon</span>
+      <span *ngIf="selectedItem?.status === 'shipped'">Fun stuff is headed your way</span>
+      <span *ngIf="selectedItem?.status === 'delivered'"></span>
+      <span *ngIf="isNewShipDate()">Before we can complete your order, review the new date to
+        confirm if you're OK with it</span>
+    </div>
+    <app-order-status [complete]="selectedItem?.complete"
+      [status]="isNewShipDate() ? 'need-user-accept': selectedItem?.status"></app-order-status>
+
+    <div class="items">Items ordered: {{selectedItem?.quantity}}</div>
+    <div class="warning" *ngIf="isNewShipDate()">
+      <i class="fa fa-exclamation-triangle"></i>
+      Don't forget to let us know if you accept the new ship date. We'll cancel your order if we don't hear from you
+      soon.
+    </div>
+
+    <div *ngIf="selectedItem?.status === 'ordered'">
+      <div class="new-estimate-date">
+        <div class="title">{{isNewShipDate() ? 'New estimated': 'Estimated'}} ship date</div>
+        <div class="desc">{{selectedItem?.newEstimatedShipDateRange?.fromDate | date: 'mediumDate'}} -
+          {{selectedItem?.newEstimatedShipDateRange?.toDate | date: 'mediumDate'}}</div>
+      </div>
+
+      <div class="original-estimate-date" *ngIf="isNewShipDate()">
+        <div class="title">Original estimated ship date</div>
+        <div class="desc">{{selectedItem?.estimatedShipDateRange?.fromDate | date: 'mediumDate'}} -
+          {{selectedItem?.estimatedShipDateRange?.toDate | date: 'mediumDate'}}</div>
+      </div>
+
+    </div>
+
+    <div class="new-estimate-date" *ngIf="selectedItem?.status === 'shipped'">
+      <div class="title">Estimated delivery date: <span class="light">Sat., May 4, 2019</span></div>
+    </div>
+
+    <div class="new-estimate-date" *ngIf="selectedItem?.status === 'delivered'">
+      <div class="title">Order delivered: <span class="light">Sat., May 4, 2019</span></div>
+    </div>
+
+    <div class="address">
+      <span class="bold">Address:</span>
+      <span class="loc"> {{order?.shipingAddress?.street}}, {{order?.shipingAddress?.city}},
+        {{order?.shipingAddress?.state}} {{order?.shipingAddress?.zip}}
+        Peachtree Industrial Blvd. Peachtree City, GA 67890-6788
+      </span>
+    </div>
+
+    <div class="actions" *ngIf="selectedItem?.status === 'ordered'">
+      <button class="btn btn-primary btn-block" *ngIf="isNewShipDate()" (click)="acceptNewShipDate()">Accept new ship
+        date</button>
+      <button class="btn btn-outline-secondary btn-block" (click)="cancelItem()">Cancel your order</button>
+    </div>
+  </div>
+  <div class="product-list">
+    <app-products-list [items]="order?.items" [selected]="selectedItemId" (itemChanged)="itemChanged($event)">
+    </app-products-list>
+  </div>
+</div>

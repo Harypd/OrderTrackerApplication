@@ -1,0 +1,80 @@
+<div *ngIf="status === 'delivered'" [ngClass]="size" class="status-box">
+  <div class="box blue">
+    <i class="fa fa-home fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Ordered</span>
+  </div>
+  <div class="box blue">
+    <i class="fa fa-truck fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Shipped</span>
+  </div>
+  <div class="box blue">
+    <i class="fa fa-home fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Delivered</span>
+  </div>
+</div>
+
+<div *ngIf="status === 'ordered'" [ngClass]="size" class="status-box">
+  <div class="box orange">
+    <i class="fa fa-archive fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Ordered</span>
+  </div>
+  <div class="box gray">
+    <i class="fa fa-truck fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Shipped</span>
+  </div>
+  <div class="box gray">
+    <i class="fa fa-home fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Delivered</span>
+  </div>
+</div>
+
+<div *ngIf="status === 'shipped'" class="status-box">
+  <div class="box blue">
+    <i class="fa fa-check-circle-o fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Ordered</span>
+  </div>
+  <div class="box blue">
+    <i class="fa fa-truck fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Shipped</span>
+  </div>
+  <div class="box gray">
+    <i class="fa fa-home fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Delivered</span>
+  </div>
+</div>
+
+<div *ngIf="status === 'need-user-accept'" [ngClass]="size" class="status-box">
+  <div class="box blue">
+    <i class="fa fa-archive fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Ordered</span>
+  </div>
+  <div class="box gray">
+    <i class="fa fa-truck fa-2x"></i>
+    <span class="line"></span>
+    <span class="cross">X</span>
+    <span class="status_text">Shipped</span>
+  </div>
+  <div class="box gray">
+    <i class="fa fa-home fa-2x"></i>
+    <span class="line"></span>
+    <span class="status_text">Delivered</span>
+  </div>
+</div>
+
+<!-- <div class="in-progress">
+  <span class="check orange"><i class="fas fa-box-open"></i></span>
+  <span class="check orange"><i class="fas fa-truck"></i></span>
+  <span class="orange"><i class="fa fa-home fa-2x"></i></span>
+  <i class="far fa-check-circle"></i>
+
+</div> -->
